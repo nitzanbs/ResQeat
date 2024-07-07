@@ -4,13 +4,13 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAu5Sfzy9IAqkCg91f0b8W76eCqV_u6BwI",
-  authDomain: "resqeat-e067f.firebaseapp.com",
-  projectId: "resqeat-e067f",
-  storageBucket: "resqeat-e067f.appspot.com",
-  messagingSenderId: "712747793085",
-  appId: "1:712747793085:web:5fed56bd8a981a9102d5d4",
-  measurementId: "G-NGRC8LD8SS"
+  apiKey: "AIzaSyBYOmjqm5aGF32VYzfj4vQ7yc5RuwplhaA",
+  authDomain: "resqeat.firebaseapp.com",
+  projectId: "resqeat",
+  storageBucket: "resqeat.appspot.com",
+  messagingSenderId: "959666020031",
+  appId: "1:959666020031:web:99b2abada16f586b7ef00a",
+  measurementId: "G-3B6BS2NJJL"
 };
 
 const app = initializeApp(firebaseConfig);

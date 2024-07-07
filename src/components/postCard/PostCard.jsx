@@ -134,9 +134,9 @@ export default function RecipeReviewCard(props) {
                             <Typography paragraph>
                             Notes: <br />{item.notes}
                             </Typography>
-                            <Typography>
+                            {/* <Typography>
                                 Set aside off of the heat to let rest for 10 minutes, and then serve.
-                            </Typography>
+                            </Typography> */}
                         </CardContent>
                     </Collapse>
                 </Card>

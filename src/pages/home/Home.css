@@ -1,0 +1,10 @@
+.pageHome{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.homeContainer{
+  min-height: 100vh;
+}

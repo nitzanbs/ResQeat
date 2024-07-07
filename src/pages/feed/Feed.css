@@ -1,0 +1,28 @@
+.pagePostCard {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  padding: 2rem;
+  row-gap: 2rem;
+}
+
+.feedTitle {
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.feedContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: space-around;
+  column-gap: 1rem;
+  row-gap: 5rem;
+  padding: 5rem;
+}
+
+.imageWhatWouldYou {
+  height: 15rem;
+}

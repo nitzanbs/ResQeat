@@ -1,0 +1,14 @@
+
+
+.workInMaps{
+  height: 30rem;
+}
+
+.mapsContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 2rem;
+ min-height: 34rem;
+}

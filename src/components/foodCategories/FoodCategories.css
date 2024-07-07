@@ -1,0 +1,39 @@
+/* @media (min-width: 900px){
+.css-15kq9bj-MuiContainer-root {
+  max-width: 1300px; 
+}
+} */
+
+.ImageOfFoodHome {
+  height: 30rem;
+}
+
+.imageContainer {
+  position: relative;
+}
+.imageContainer p {
+  position: absolute;
+  top: 70%;
+  left: 13%;
+  transform: translateY(-50%);
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  max-width: 37rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.ImageWhyUs {
+  margin-top: 10rem;
+  width: 94.7rem;
+}
+
+.btnForFeed {
+  background-color: #ffd16c !important;
+  color: black !important;
+  border-radius: 5rem !important;
+}
+
+.foodLink{
+  text-decoration: none !important;
+  color: black;
+}

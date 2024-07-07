@@ -1,0 +1,72 @@
+.profileContainer {
+  min-height: 34rem;
+  background-image: url("images/smallerBackground.png");
+  background-size: cover;
+  border-radius: 2rem;
+  width: 40rem;
+}
+
+.profileDiv {
+  display: flex;
+  padding: 20px;
+  width: 40rem;
+}
+
+.avatarContainer {
+  position: relative;
+  margin-top: 10rem;
+}
+
+.avatarContainer:hover {
+  cursor: pointer;
+}
+
+.avatarOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 50%;
+  padding: 4rem;
+  text-align: center;
+}
+
+.avatarContainer:hover .avatarOverlay {
+  opacity: 1;
+}
+
+.avatarOverlay p {
+  margin: 0;
+}
+
+.profileContainer .MuiAvatar-root {
+  width: 15rem !important;
+  height: 15rem !important;
+  margin: 6rem !important;
+  overflow: hidden;
+}
+
+.ProfileDetailsDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
+.MoreDetailsContainer {
+  margin-left: 15rem;
+  margin-top: 5rem;
+}
+
+.workIn {
+  height: 30rem;
+}

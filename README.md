@@ -1,8 +1,28 @@
-# React + Vite
+# Food Donation Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is designed to collect food donations from various businesses. At the end of each day, all collected donations are made available for public use.
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The Food Donation Project started as a 3-person hackathon team initiative. It aims to facilitate easy donation and distribution of excess food from restaurants and other food businesses to those in need.
+
+## Features
+
+- **User-friendly Interface**: Easily submit, view, and manage food donations.
+- **Real-time Updates**: Donations are updated in real-time as they are submitted.
+- **Public Access**: Open to the public for viewing and using available donations.
+
+## Technologies Used
+
+- React
+- Firebase Firestore for backend data storage
+- Cloudinary for image hosting
+- MUI for UI components
+
+## Setup Instructions
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/food-donation-project.git
+   cd food-donation-project

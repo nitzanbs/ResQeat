@@ -2,6 +2,10 @@ import React, { useContext, useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import MenuItem from "@mui/material/MenuItem";
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import {
   getDocs,
   collection,
@@ -12,7 +16,7 @@ import {
 } from "firebase/firestore";
 import { dataBase } from "../../Config/firebaseConfig";
 import { UserContext } from "../../context/UserContext";
-
+import dayjs from 'dayjs';
 import "./AddPost.css";
 
 const amount = [
@@ -113,16 +117,24 @@ function AddPost(props) {
         userName: user.email,
       });
       console.log({ postCardDoc });
-
-      //get the new Doc
+  
+      // Get the new document
       const postRef = doc(dataBase, "PostCollection", postCardDoc.id);
       const newDoc = await getDoc(postRef);
-      setPostCard([...postCard, { ...newDoc.data(), id: newDoc.id }]);
+      setPostCard({ ...newDoc.data(), id: newDoc.id });
     } catch (error) {
-      setErrMsg("something went wrong");
+      setErrMsg("Something went wrong");
     }
   };
+  
 
+  const handleTimeChange = (newValue) => {
+    setSelectedDate(newValue);
+    const formattedTime = dayjs(newValue).format();
+    setPostCard({ ...postCard, pickupTime: formattedTime });
+  };
+  
+  
   const preset_key = "ml_default";
   const cloud_name = "djmlunvsl";
 
@@ -151,6 +163,10 @@ function AddPost(props) {
   };
 
   console.log("postCard:", postCard);
+
+
+
+
   return (
     <div className="page">
       <div className="addPostTitle">
@@ -165,12 +181,21 @@ function AddPost(props) {
             name="dishName"
             variant="standard"
           />
-          <TextField
+          {/* <TextField
             id="standard-basic"
             label="pickup time"
             name="pickupTime"
             variant="standard"
-          />
+          /> */}
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DemoContainer components={['TimePicker']}>
+              <TimePicker
+                label="pickup time"
+                value={selectedDate}
+                onChange={handleTimeChange}
+              />
+            </DemoContainer>
+          </LocalizationProvider>
 
           <Box
             component="form"
@@ -270,3 +295,8 @@ function AddPost(props) {
 }
 
 export default AddPost;
+
+
+
+
+

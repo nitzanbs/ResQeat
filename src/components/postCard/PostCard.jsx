@@ -19,6 +19,8 @@ import { getDocs, collection, query, where } from "firebase/firestore";
 import { dataBase } from "../../Config/firebaseConfig"
 import { UserContext } from '../../context/UserContext';
 import './PostCard.css'
+import dayjs from 'dayjs';
+import 'dayjs/locale/en'; 
 
 
 
@@ -37,14 +39,14 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function RecipeReviewCard(props) {
-    const [expanded, setExpanded] = React.useState(false);
+    const [expandedCard, setExpandedCard] = useState(null);
 
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
+    const handleExpandClick = (index) => {
+        setExpandedCard(expandedCard === index ? null : index);
     };
 
-    const {postCards, setPostCards, image, setImage} = props
- 
+    const { postCards, setPostCards, image, setImage } = props
+
 
     const { user } = useContext(UserContext);
     const postCardsCollectionRef = collection(dataBase, 'PostCollection');
@@ -74,14 +76,17 @@ export default function RecipeReviewCard(props) {
 
     // console.log(postCards);
 
+    const formatTime = (time) => {
+        return dayjs(time).locale('en').format('hh:mm A');    };
+
     return (
         <>
             {postCards?.map((item, i) => (
-                <Card  sx={{ maxWidth: 345 }}>
+                <Card sx={{ maxWidth: 345 }}>
                     <CardHeader
                         avatar={
                             <Avatar src={`https://i.pravatar.cc/300?param=${item.userName}`} sx={{ bgcolor: red[500] }} aria-label="recipe">
-                              {item.email && item.email.substring(0, item.email.indexOf('@'))}
+                                {item.email && item.email.substring(0, item.email.indexOf('@'))}
                             </Avatar>
 
                         }
@@ -96,13 +101,13 @@ export default function RecipeReviewCard(props) {
                     <CardMedia
                         component="img"
                         height="194"
-                        image= {item.image}
+                        image={item.image}
                         alt={item.dishName}
                     />
                     <CardContent>
-                        <Typography variant="body2" color="text.secondary">
-                        {item.dishName}
-                            
+                        <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+                            {item.dishName}
+
 
                         </Typography>
                     </CardContent>
@@ -114,25 +119,33 @@ export default function RecipeReviewCard(props) {
                             <ShareIcon />
                         </IconButton>
                         <ExpandMore
-                            expand={expanded}
-                            onClick={handleExpandClick}
-                            aria-expanded={expanded}
+                            expand={expandedCard === i}
+                            onClick={() => handleExpandClick(i)}
+                            aria-expanded={expandedCard === i}
                             aria-label="show more"
                         >
                             <ExpandMoreIcon />
                         </ExpandMore>
                     </CardActions>
-                    <Collapse in={expanded} timeout="auto" unmountOnExit>
+                    <Collapse in={expandedCard === i} timeout="auto" unmountOnExit>
                         <CardContent>
-                            <Typography paragraph>More detalis:</Typography>
+                            <Typography variant="body1" sx={{ fontWeight: 'bold', paddingBottom: '4px' }}>
+                                More detalis:</Typography>
                             <Typography paragraph>
-                                pickup time: {item.pickupTime}
+                                Amount: {item.amount}
                             </Typography>
                             <Typography paragraph>
-                                category: {item.category}
+                                Pickup time: {formatTime(item.pickupTime)}
                             </Typography>
                             <Typography paragraph>
-                            Notes: <br />{item.notes}
+                                Category: {item.category}
+                            </Typography>
+                            <Typography variant="body1" sx={{ fontWeight: 'bold' }} >
+                                Notes:
+
+                            </Typography>
+                            <Typography variant="body1" sx={{ fontWeight: 'bold', borderTop: '1px solid #000', paddingTop: '4px' }}>
+                                {item.notes}
                             </Typography>
                             {/* <Typography>
                                 Set aside off of the heat to let rest for 10 minutes, and then serve.

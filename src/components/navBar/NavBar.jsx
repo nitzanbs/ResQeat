@@ -82,6 +82,7 @@ const NavBar = () => {
           />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto navbar-light">
+              <Nav.Link href="/home">Home</Nav.Link>
               <Nav.Link href="/feed">Feed</Nav.Link>
               <Nav.Link href="/addPost">Add Post</Nav.Link>
               <Nav.Link href="/Maps">Map</Nav.Link>
